@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Line } from 'react-chartjs';
+import Chart from '../components/chart';
 
 class WeatherList extends Component {
   convertDate(date) {
@@ -16,22 +16,21 @@ class WeatherList extends Component {
 
   renderWeather(data) {
     const temps = data.list.map(weather => weather.main.temp);
-    // We're using blank label because of lack of space
-    const labels = Array(temps.length).fill('');
-    const chartData = {
-      datasets: [{
-        data: temps
-      }],
-      labels,
-    }
-
+    const pressure = data.list.map(weather => weather.main.pressure);
+    const humidity = data.list.map(weather => weather.main.humidity);
     return (
       <tr key={data.city.id}>
         <td>
           {data.city.name}
         </td>
         <td>
-          <Line data={chartData} width="300" height="250"/>
+          <Chart data={temps} width="300" height="250"/>
+        </td>
+        <td>
+          <Chart data={pressure} width="300" height="250"/>
+        </td>
+        <td>
+          <Chart data={humidity} width="300" height="250"/>
         </td>
       </tr>
     )
