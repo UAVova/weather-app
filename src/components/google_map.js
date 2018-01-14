@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class GoogleMap extends Component {
   componentDidMount() {
-    new google.maps.Map(this.refs.map, {
+    new google.maps.Map(this.map, {
       zoom: 11,
       center: {
         lat: this.props.lat,
@@ -12,6 +12,6 @@ export default class GoogleMap extends Component {
   }
 
   render() {
-    return <div ref="map" />;
+    return <div ref={input => this.map = input} />;
   }
 }
