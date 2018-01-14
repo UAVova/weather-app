@@ -24,13 +24,13 @@ class WeatherList extends Component {
           {data.city.name}
         </td>
         <td>
-          <Chart data={temps} width="300" height="250"/>
+          <Chart data={temps} width="250" height="250" units="K"/>
         </td>
         <td>
-          <Chart data={pressure} width="300" height="250"/>
+          <Chart data={pressure} width="250" height="250" units="hPa"/>
         </td>
         <td>
-          <Chart data={humidity} width="300" height="250"/>
+          <Chart data={humidity} width="250" height="250" units="%"/>
         </td>
       </tr>
     )
