@@ -4,3 +4,7 @@
 .average-bar {
   text-align: center;
 }
+td:first-of-type, td:first-of-type > div {
+  height: 250px;
+  width: 250px;
+}
